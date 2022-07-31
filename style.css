@@ -28,13 +28,19 @@ button{
 .btns{
     margin-left: 17px;
     margin-top: 10px;
-    display:grid;
+    display:grid;  
     grid-template-columns: auto auto auto auto;
     gap: 20px;
 }
+#erase{
+    font-size: 80px;
+    grid-column: 2/4;
+    width: 220px;
+    border-radius: 12px;
+}
 #equals{
     width: 220px;
-    grid-column: 3/ 5;
+    grid-column: 3/5;
     border-radius: 12px;
     color: white;
     font-size:50px;
@@ -45,18 +51,51 @@ button{
     color: white;
     font-size: 100px;
 }
-#displayNumber{
+#previous{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    margin-top: 25px;
+}
+#current{
     display: flex;
     justify-content: flex-end;
     margin-right: 40px;
     margin-top: 25px;
 }
 
-.operators{
+#equals{
+    background-color: #405cf5;
+}
+
+.operators {
   background-color: #405cf5;
 }
 
 .operators:focus {
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+  }
+  
+  .fa-github {
+    color: black;
+    font-size: 30px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
 
