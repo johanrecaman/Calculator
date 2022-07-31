@@ -22,7 +22,7 @@ Made by Johan Stromberg :fire:
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/_johanrecaman_)
 
 ---
-[Live Server](https://logzin.github.io/calculator/)
+[Live Server](https://logzin.github.io/Calculator/)
 
 <h4 align="center">
   🚧  Work In Progress...  🚧
