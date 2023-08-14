@@ -1,7 +1,7 @@
 <h1 align="center">Odin Calculator</h1>
 
 <p align="center">This is a web project made with HTML, CSS and JavaScript for studying purposes</p>
-<p align="center">This app is on V1.0</p>
+<p align="center">This app is on V2.0</p>
 
 <img src="./liveserver.png"></img>
 

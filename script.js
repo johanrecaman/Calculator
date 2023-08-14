@@ -1,33 +1,15 @@
 const numberButton = document.querySelectorAll(".number");
 const operatorButton = document.querySelectorAll(".operators");
-const previousQuery = document.querySelector("#previous");
 const currentQuery = document.querySelector("#current");
 const operateQuery = document.querySelector("#equals");
 const clearQuery = document.querySelector("#clear");
 const eraseQuery = document.querySelector("#erase");
+let isFirstNumber = true;
 let displayIndex = 0;
 let operatorIndex = 0;
-let isFirstCalc = true;
-let isCurrent = true;
-let isCompleted = false;
-let currentOperator = '';
-let firstNumber = '';
-let secondNumber = '';
-
-const sum = (a, b) => a + b;
-
-const subtract = (a, b) => a + b;
-
-const multiply = (a, b) => a * b;
-
-const divide = (a, b) => {
-    if(b === 0){
-        return "error";
-    }
-    else{
-        return a/b;
-    }
-}
+let operator = '';
+let n1 = '0';
+let n2 = '';
 
 const operate = function(operator, x, y){
     let result = 0;
@@ -37,56 +19,48 @@ const operate = function(operator, x, y){
 
     switch(operator){
         case "+":
-            result = sum(n1, n2);
+            result = n1 + n2
             break;
         case "-":
-            result = subtract(n1, n2);
+            result = n1 - n2;
             break;
         case "x":
-            result = multiply(n1, n2);
+            result = n1 * n2;
             break;
         case "÷":
-            result = divide(n1, n2);
+            if (n2 === 0){
+                result = "error";
+            }
+            else{
+                result =  n1 / n2;
+            }
             break;
     }
     return result;
 }
 
 const equals = () => {
-    secondNumber = previousQuery.innerHTML;
-    let resultado = operate(currentOperator, firstNumber, secondNumber);
-    previousQuery.innerHTML = resultado;
-    firstNumber = resultado;
-    secondNumber = 0;
-    isCompleted = true;
-}
-
-
-const newCalc = function(){
-    isCurrent = false;
+    let resultado = operate(operator, n1, n2);
+    currentQuery.innerHTML = resultado;
+    n1 = resultado;
+    n2 = '';
     operatorIndex = 0;
-    firstNumber = secondNumber;
-    secondNumber = 0;
-    
+    isFirstNumber = false;
 }
 
 numberButton.forEach((button) => {
     button.addEventListener('click', ()=>{
-        if (isFirstCalc) {
-            currentQuery.innerHTML = '';
-            isFirstCalc = false;
-        }
-        if(isCompleted){
-            previousQuery.innerHTML = '';
-        }
         if(displayIndex < 9){
-            if(isCurrent){
-                currentQuery.innerHTML += button.innerHTML;
-                displayIndex++
-            } else{
-                previousQuery.innerHTML += button.innerHTML;
-                displayIndex++
+            if(currentQuery.innerHTML === '0'){
+                currentQuery.innerHTML = '';
             }
+            currentQuery.innerHTML += button.innerHTML;
+            if(isFirstNumber){
+                n1 += button.innerHTML;
+            }else{
+                n2 += button.innerHTML;
+            }
+            displayIndex++
         } else{
             return;
         }
@@ -95,20 +69,15 @@ numberButton.forEach((button) => {
 
 operatorButton.forEach((button) => {
     button.addEventListener('click', () => {
-        if(isCompleted){
-            operatorIndex = 1;
+        if(operatorIndex === 1){
+            equals();
         }
-        if(operatorIndex < 1){
-            isCurrent = false;
-            operatorIndex = 1;
-            currentOperator = button.innerHTML;
-            firstNumber = currentQuery.innerHTML;
-            currentQuery.innerHTML = '';
-            displayIndex = 0;
-        }
-        else{
-            currentOperator = button.innerHTML;
-        }
+        isFirstNumber = false;
+        operatorIndex = 1;
+        operator = button.innerHTML;
+        currentQuery.innerHTML += button.innerHTML;
+        displayIndex = 0;
+        
     })
 })
 
@@ -116,24 +85,14 @@ operateQuery.addEventListener('click', () => {
     equals();
 })
 
-eraseQuery.addEventListener('click', ()=>{
-    if(isCurrent){
-        currentQuery.innerHTML = currentQuery.innerHTML.slice(0, -1);
-    }else{
-        previousQuery.innerHTML = previousQuery.innerHTML.slice(0, -1);
-    }
-})
+eraseQuery.addEventListener('click', () => {})
 
 clearQuery.addEventListener('click', () => {
-    currentQuery.innerHTML = '';
-    previousQuery.innerHTML = '';
+    currentQuery.innerHTML = '0';
     displayIndex = 0;
     operatorIndex = 0;
-    isFirstCalc = true;
-    isCurrent = true;
-    isCompleted = false;
-    currentOperator = '';
-    firstNumber = '';
-    secondNumber = '';
+    operator = '';
+    n1 = '';
+    n2 = '';
 
 })
