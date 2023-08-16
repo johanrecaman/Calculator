@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script.js" defer></script>
-    <link rel="stylesheet" href="./style.css">
+    <script src="./lib/script.js" defer></script>
+    <link rel="stylesheet" href="./lib/style.css">
     <title>Awesome Calculator</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <script
@@ -14,41 +14,43 @@
     ></script>
 </head>
 <body>
-    <div class="calculatorBody">
-        <div id="display">
-            <div id="previous"></div>
-            <div id="current">0</div>
+    <div class ="page">
+        <div class="calculatorBody">
+            <div id="display">
+                <div id="previous"></div>
+                <div id="current">0</div>
+            </div>
+            <div class="btns">
+                <button class="config" id="clear">AC</button>
+                <button class="config" id="erase">⟵</button>
+                <button class="operators" id="divide">÷</button>
+                <button class="number" id="seven">7</button>
+                <button class="number" id="eight">8</button>
+                <button class="number" id="nine">9</button>
+                <button class="operators" id="multiply">x</button>
+                <button class="number" id="four" >4</button>
+                <button class="number" id="five">5</button>
+                <button class="number" id="six">6</button>
+                <button class="operators" id="subtract">-</button>
+                <button class="number" id="one">1</button>
+                <button class="number" id="two">2</button>
+                <button class="number" id="three">3</button>
+                <button class="operators" id="add">+</button>
+                <button class="number" id="zero">0</button>
+                <button class="number" id="comma">.</button>
+                <button id="equals">=</button>
+            </div>
         </div>
-        <div class="btns">
-            <button class="config" id="clear">AC</button>
-            <button class="config" id="erase">⟵</button>
-            <button class="operators" id="divide">÷</button>
-            <button class="number" id="seven">7</button>
-            <button class="number" id="eight">8</button>
-            <button class="number" id="nine">9</button>
-            <button class="operators" id="multiply">x</button>
-            <button class="number" id="four" >4</button>
-            <button class="number" id="five">5</button>
-            <button class="number" id="six">6</button>
-            <button class="operators" id="subtract">-</button>
-            <button class="number" id="one">1</button>
-            <button class="number" id="two">2</button>
-            <button class="number" id="three">3</button>
-            <button class="operators" id="add">+</button>
-            <button class="number" id="zero">0</button>
-            <button class="number" id="comma">.</button>
-            <button id="equals">=</button>
+        <div class="footer">
+            <p>
+                Copyright ©
+                <script>document.write(new Date().getFullYear())</script>
+                johanrecaman
+            </p>
+            <a href="https://github.com/logzin" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
         </div>
-    </div>
-    <div class="footer">
-        <p>
-            Copyright ©
-            <script>document.write(new Date().getFullYear())</script>
-            johanrecaman
-        </p>
-        <a href="https://github.com/logzin" target="_blank">
-        <i class="fab fa-github"></i>
-    </a>
     </div>
 </body>
 </html>
